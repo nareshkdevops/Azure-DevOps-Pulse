@@ -55,7 +55,7 @@ stages:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/WebApp-ASP.Net core/terraform-manifests'
         commandOptions: '-out=tfplan'
-        environmentServiceNameAzureRM: 'Free Trial(2)(21fb298c-8b2d-4d34-971a-9b99a2af713b)'
+        environmentServiceNameAzureRM: 'Free Trial(6)(21fb298c-8b2d-4d34-971a-9b99a2af713b)'
     - task: CopyFiles@2
       displayName: Copy files
       inputs:
