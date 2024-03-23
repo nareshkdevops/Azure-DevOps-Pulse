@@ -31,7 +31,7 @@ resource "azurerm_virtual_machine_data_disk_attachment" "disk_attach" {
 
 # Create Boot Diagnostic Storage Account
 resource "azurerm_storage_account" "storage" {
-  name = "${var.Application_name}${var.environment}stg001"
+  name = "narstorageaccboot0"
   #location            = data.azurerm_resource_group.existing_rg.location
   #resource_group_name = data.azurerm_resource_group.existing_rg.name
    resource_group_name  = azurerm_resource_group.HriyenRG.name
