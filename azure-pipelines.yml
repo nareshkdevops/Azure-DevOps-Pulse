@@ -28,8 +28,8 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/WebApp-ASP.Net core/terraform-manifests'
         backendServiceArm: 'SC_AzureDevOpsPulseOrg01'
         backendAzureRmResourceGroupName: 'sc-rg'
-        backendAzureRmStorageAccountName: 'narstorageacc01'
-        backendAzureRmContainerName: 'data-container'
+        backendAzureRmStorageAccountName: 'eusstoraccbackup001'
+        backendAzureRmContainerName: 'data-container1'
         backendAzureRmKey: 'terraform.tfstate'
 
     - task: TerraformTaskV4@4
@@ -45,9 +45,9 @@ stages:
         provider: 'azurerm'
         command: 'custom'
         workingDirectory: '$(System.DefaultWorkingDirectory)/WebApp-ASP.Net core/terraform-manifests'
-        customCommand: 'fmt'
         outputTo: 'console'
-        environmentServiceNameAzureRM: 'Free Trial(1)(21fb298c-8b2d-4d34-971a-9b99a2af713b)'
+        customCommand: 'fmt'
+        environmentServiceNameAzureRM: 'SC_AzureDevOpsPulseOrg01'
     
     - task: TerraformTaskV4@4
       inputs:
@@ -55,7 +55,7 @@ stages:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/WebApp-ASP.Net core/terraform-manifests'
         commandOptions: '-out=tfplan'
-        environmentServiceNameAzureRM: 'Free Trial(6)(21fb298c-8b2d-4d34-971a-9b99a2af713b)'
+        environmentServiceNameAzureRM: 'SC_AzureDevOpsPulseOrg01'
     - task: CopyFiles@2
       displayName: Copy files
       inputs:
